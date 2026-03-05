@@ -1,9 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import Icon from "./components/icon";
+import { useState } from "react";
 import SearchIcon from "./components/search-icon";
-import { useTheme } from "./providers/theme-providers";
 
 interface Country {
 	flags: {
