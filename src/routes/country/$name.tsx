@@ -97,7 +97,7 @@ function RouteComponent() {
 					<img src={country.flags.svg} alt={country.flags.alt} />
 				</div>
 				<div className=" w-full">
-					<h1 className="font-[700] text-xl">{country.name.common}</h1>
+					<h1 className="font-[700] text-xl">{country.name.official}</h1>
 					<p className=" font-[700]  mt-6">
 						Native Name: <span className="font-light">{nativeName}</span>{" "}
 					</p>
