@@ -29,7 +29,7 @@ function RootComponent() {
 						</button>
 					</div>
 				</header>
-				<section className="mt-20 flex-1 py-12">
+				<section className="mt-20 md:mt-40 py-6 flex-1">
 					<Outlet />
 				</section>
 			</main>
