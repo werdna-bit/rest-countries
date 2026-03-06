@@ -83,7 +83,7 @@ function RouteComponent() {
 		: null;
 
 	return (
-		<div className="h-full flex flex-col items-center gap-8 p-4 px-8 md:p-8">
+		<div className="h-full flex flex-col items-center gap-8 p-4 px-8 max-w-7xl mx-auto md:p-8">
 			<div className="w-full">
 				<Link
 					to="/"
@@ -92,76 +92,78 @@ function RouteComponent() {
 					<p>Back</p>
 				</Link>
 			</div>
-			<div className="w-full  max-w-[500px]">
-				<img src={country.flags.svg} alt={country.flags.alt} />
-			</div>
-			<div className=" w-full">
-				<h1 className="font-[700] text-xl">{country.name.official}</h1>
-				<p className=" font-[700]  mt-6">
-					Native Name: <span className="font-light">{nativeName}</span>{" "}
-				</p>
-				<p className=" font-[700]">
-					Population: <span className="font-light">
-						{country.population}
-					</span>{" "}
-				</p>
-				<p className=" font-[700]">
-					Region: <span className="font-light">{country.region}</span>{" "}
-				</p>
-				<p className=" font-[700]">
-					Sub Region: <span className="font-light">
-						{country.subregion}
-					</span>{" "}
-				</p>
-				<p className=" font-[700]">
-					Capital: <span className="font-light">{country.capital}</span>{" "}
-				</p>
-				<p className=" font-[700] mt-8">
-					Top Level Domain: <span className="font-light">
-						{country.tld}
-					</span>{" "}
-				</p>
-				<p className=" font-[700]">
-					Currencies:{" "}
-					{country.currencies && (
-						<span className="font-light">
-							{Object.values(country.currencies)
-								.map((currency) => currency.name)
-								.join(", ")}
-						</span>
-					)}
-				</p>
-				<p className=" font-[700]">
-					Languages:{" "}
-					{country.languages && (
-						<span className="font-light">
-							{Object.values(country.languages)
-								.map((l) => l)
-								.join(", ")}
-						</span>
-					)}
-				</p>
-				<div className="mt-8 w-full">
-					<h2 className="font-[700] text-lg">Border Countries</h2>
-					<div className="w-full mt-4 flex items-center flex-wrap gap-4">
-						{borderCountries.length > 0 ? (
-							borderCountries.map((borderCountry) => (
-								<Link
-									key={borderCountry.cca3}
-									to="/country/$name"
-									params={{
-										name: borderCountry.name.common
-											.toLowerCase()
-											.replace(/\s+/g, "-"),
-									}}
-									className="font-light element px-6 py-1 shadow-md"
-								>
-									{borderCountry.name.common}
-								</Link>
-							))
-						) : (
-							<span className="font-light">No border countries</span>
+			<div className="flex flex-col w-full gap-12 md:flex-row ">
+				<div className="w-full max-w-[500px] lg:max-w-[600px]">
+					<img src={country.flags.svg} alt={country.flags.alt} />
+				</div>
+				<div className=" w-full">
+					<h1 className="font-[700] text-xl">{country.name.official}</h1>
+					<p className=" font-[700]  mt-6">
+						Native Name: <span className="font-light">{nativeName}</span>{" "}
+					</p>
+					<p className=" font-[700]">
+						Population: <span className="font-light">
+							{country.population}
+						</span>{" "}
+					</p>
+					<p className=" font-[700]">
+						Region: <span className="font-light">{country.region}</span>{" "}
+					</p>
+					<p className=" font-[700]">
+						Sub Region: <span className="font-light">
+							{country.subregion}
+						</span>{" "}
+					</p>
+					<p className=" font-[700]">
+						Capital: <span className="font-light">{country.capital}</span>{" "}
+					</p>
+					<p className=" font-[700] mt-8">
+						Top Level Domain: <span className="font-light">
+							{country.tld}
+						</span>{" "}
+					</p>
+					<p className=" font-[700]">
+						Currencies:{" "}
+						{country.currencies && (
+							<span className="font-light">
+								{Object.values(country.currencies)
+									.map((currency) => currency.name)
+									.join(", ")}
+							</span>
 						)}
+					</p>
+					<p className=" font-[700]">
+						Languages:{" "}
+						{country.languages && (
+							<span className="font-light">
+								{Object.values(country.languages)
+									.map((l) => l)
+									.join(", ")}
+							</span>
+						)}
+					</p>
+					<div className="mt-8 w-full">
+						<h2 className="font-[700] text-lg">Border Countries</h2>
+						<div className="w-full mt-4 flex items-center flex-wrap gap-4">
+							{borderCountries.length > 0 ? (
+								borderCountries.map((borderCountry) => (
+									<Link
+										key={borderCountry.cca3}
+										to="/country/$name"
+										params={{
+											name: borderCountry.name.common
+												.toLowerCase()
+												.replace(/\s+/g, "-"),
+										}}
+										className="font-light element px-6 py-1 shadow-md"
+									>
+										{borderCountry.name.common}
+									</Link>
+								))
+							) : (
+								<span className="font-light">No border countries</span>
+							)}
+						</div>
 					</div>
 				</div>
 			</div>
